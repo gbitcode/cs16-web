@@ -1,0 +1,40 @@
+# --- Site ---
+title: Counter-Strike 1.6
+url: "https://cs16.gbitcode.com"
+baseurl: ""
+lang_default: en
+
+# --- Google Analytics ---
+# Paste your Measurement ID here later, e.g. "G-XXXXXXXXXX".
+# Leave empty to disable analytics (nothing is loaded).
+ga_id: ""
+
+# --- Download links ---
+# Paste the direct file URLs here later (e.g. a GitHub Release asset).
+# While empty, the buttons show a "coming soon" state but still track clicks.
+downloads:
+  windows: "https://s.gbitcode.com/l/yanzcrch6c"   # .exe installer
+  macos: "https://s.gbitcode.com/l/2y4e7kavg7"     # .dmg
+  linux: "https://appdb.winehq.org/objectManager.php?sClass=application&iId=10681"  # WineHQ guide (no native build)
+
+# --- Build ---
+# Jekyll is what GitHub Pages runs natively. No CI needed.
+markdown: kramdown
+sass:
+  style: compressed
+plugins:
+  - jekyll-sitemap   # auto-generates /sitemap.xml (whitelisted on GitHub Pages)
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - DEPLOY.md
+  - vendor
+  - .idea
+  - todo.md
+
+# Two language pages, generated from _data/*.yml through one layout.
+defaults:
+  - scope: { path: "" }
+    values: { layout: "home" }

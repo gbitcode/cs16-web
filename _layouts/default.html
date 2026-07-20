@@ -1,0 +1,48 @@
+---
+---
+{%- assign t = site.data[page.lang] -%}
+<!doctype html>
+<html lang="{{ page.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ t.meta.title }}</title>
+  <meta name="description" content="{{ t.meta.description }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ '/assets/images/icon.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/icon.png' | relative_url }}">
+
+  <link rel="canonical" href="{{ site.url }}{{ t.dir }}">
+  <link rel="alternate" hreflang="en" href="{{ site.url }}/en/">
+  <link rel="alternate" hreflang="ru" href="{{ site.url }}/ru/">
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/">
+
+  <!-- Open Graph (nice link previews when sharing to friends) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ t.meta.title }}">
+  <meta property="og:description" content="{{ t.meta.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ t.dir }}">
+
+  <!-- CS 1.6 UI theme (self-hosted; see assets/vendor/) -->
+  <link rel="stylesheet" href="{{ '/assets/vendor/cs16.min.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  {%- if site.ga_id and site.ga_id != "" and jekyll.environment == "production" %}
+  <!-- Google Analytics (production builds only — never loaded locally) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga_id }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.ga_id }}');
+  </script>
+  {%- endif %}
+</head>
+<body>
+  {{ content }}
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

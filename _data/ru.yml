@@ -1,0 +1,146 @@
+code: ru
+name: "Русский"
+dir: /ru/
+other:
+  code: en
+  name: English
+  dir: /en/
+
+meta:
+  title: "Counter-Strike 1.6 — Скачать и играть с друзьями"
+  description: "Скачайте Counter-Strike 1.6 для Windows и macOS. Готовые самодостаточные сборки и понятные инструкции: как поднять сервер и играть онлайн с друзьями."
+
+nav:
+  features: "Что внутри"
+  download: "Скачать"
+  shots: "Скриншоты"
+  play: "Играть вместе"
+  faq: "Вопросы"
+
+hero:
+  tag: "как для чайника"
+  title: "Counter-Strike 1.6"
+  subtitle: "Готово к игре на Windows и macOS."
+  cta: "Забрать игру"
+  cta_sub: "Бесплатно · всё внутри · Intel и Apple Silicon"
+
+features:
+  title: "Что внутри"
+  note: "В основе — классическая 1.6, отполированная под сегодня."
+  items:
+    - "Классическая тема, переработанное меню"
+    - "Улучшенные классические анимации оружия"
+    - "Оригинальные скины оружия сохранены"
+    - "Новый улучшенный минималистичный HUD"
+    - "Отточенный классический визуальный стиль"
+    - "Плавные современные ощущения от игры"
+    - "Работает на Next Client"
+    - "Поддержка LAN и онлайна"
+    - "Боты"
+
+download:
+  title: "Скачать"
+  note: "Выберите систему. Сборки для Windows и macOS самодостаточные — запустил и играй; Linux — через Wine."
+  soon: "Ссылка скоро появится"
+  soon_hint: "Файл ещё пакуется. Загляните чуть позже."
+  windows:
+    label: "Windows"
+    tags: "Windows 10 / 11 · установщик"
+    desc: "Запустите установщик, пройдите шаги — и играйте. Если Windows предупредит о «неизвестном издателе», выберите <em>Подробнее → Выполнить в любом случае</em>."
+    button: "Скачать для Windows"
+    joke: "для нищих 💸"
+  macos:
+    label: "macOS"
+    tags: >
+      Intel и Apple Silicon (через <span class="term" tabindex="0" role="button">Rosetta 2<span class="teapot" aria-hidden="true">🫖</span><span class="tip">Rosetta 2 позволяет Mac на Apple Silicon (M1/M2/M3) запускать программы, собранные под Intel. macOS сама предложит её установить при первом запуске.</span></span>)
+    desc: >
+      <code>.dmg</code> с движком игры внутри. Откройте его, перетащите приложение в
+      <em>Applications</em>, затем при первом запуске правый клик → <em>Открыть</em>, чтобы пройти
+      <span class="term" tabindex="0" role="button">Gatekeeper<span class="teapot" aria-hidden="true">🫖</span><span class="tip">Gatekeeper — защита macOS. Она предупреждает о программах не из App Store. Один раз откройте приложение правым кликом → «Открыть», чтобы разрешить его. Здесь это нормально.</span></span>.
+    button: "Скачать для macOS"
+    joke: "для заднеприводных 🍑"
+  linux:
+    label: "Linux"
+    tags: "через Wine · WineHQ AppDB"
+    desc: "Нативной сборки нет — но 1.6 отлично идёт под Wine. На странице WineHQ AppDB есть советы по настройке, оценки и известные нюансы."
+    button: "где-то тут"
+    joke: "для тех кто любит страдать 🐧"
+
+screenshots:
+  title: "Скриншоты"
+  placeholder: "Здесь будет скриншот"
+  shots:
+    - { src: "/assets/images/screen1.webp", caption: "" }
+    - { src: "/assets/images/screen2.webp", caption: "" }
+
+play:
+  title: "Играть вместе"
+  intro: >
+    Counter-Strike 1.6 хостится «своими силами»: кто-то поднимает
+    <span class="term" tabindex="0" role="button">сервер<span class="teapot" aria-hidden="true">🫖</span><span class="tip">Сервер — это просто программа, которая ведёт матч. Все остальные к ней «подключаются». Это может быть арендованная машина или ваш собственный ПК.</span></span>,
+    остальные к нему подключаются. Ниже три способа — от «ничего не делать» до полного контроля.
+  console_title: "Сначала: как подключиться к любому серверу"
+  console_steps:
+    - >
+      В игре откройте консоль клавишей <kbd>~</kbd> (тильда, слева вверху под <kbd>Esc</kbd>).
+    - >
+      Введите <code>connect &lt;адрес&gt;</code> и Enter — например
+      <code>connect 192.168.5.10:27015</code>. Это
+      <span class="term" tabindex="0" role="button">IP-адрес<span class="teapot" aria-hidden="true">🫖</span><span class="tip">IP-адрес — номер устройства в сети, как телефонный номер. Сервер находят по IP и порту, например 192.168.5.10:27015.</span></span>
+      сервера и <span class="term" tabindex="0" role="button">порт<span class="teapot" aria-hidden="true">🫖</span><span class="tip">Порт — пронумерованная «дверь» на машине. Серверы CS 1.6 по умолчанию используют 27015. Обычно его пишут, только если он другой.</span></span>.
+    - "Вот и весь фокус. Все способы ниже лишь меняют, <em>какой адрес</em> вы вводите."
+
+  options:
+    - id: rent
+      badge: "Проще всего"
+      title: "1 · Арендовать готовый сервер"
+      lead: "Ноль настройки, всегда онлайн, за работой следит кто-то другой. Идеально для постоянного «дома» вашей компании."
+      steps:
+        - >
+          Возьмите любой хостинг игровых серверов. Их много — что искать:
+          <strong>ZAP-Hosting</strong>, <strong>Nitrado</strong>, <strong>GameServers</strong>,
+          <strong>Fragnet</strong>, <strong>Host Havoc</strong>, <strong>Fatality Servers</strong>.
+          (Мы ни на кого не ссылаемся — берите тот, что дешевле и ближе к вам.)
+        - >
+          Закажите слот <strong>Counter-Strike 1.6</strong> /
+          <span class="term" tabindex="0" role="button">HLDS<span class="teapot" aria-hidden="true">🫖</span><span class="tip">HLDS = Half-Life Dedicated Server — официальная программа, которая ведёт матчи 1.6. Хостинги называют продукт «CS 1.6» или «HLDS».</span></span>.
+          Выберите локацию с низким
+          <span class="term" tabindex="0" role="button">пингом<span class="teapot" aria-hidden="true">🫖</span><span class="tip">Пинг (задержка) — время отклика до сервера в миллисекундах. Чем меньше, тем плавнее. Берите локацию поближе к большинству друзей.</span></span>
+          для большинства друзей.
+        - "Хостинг выдаёт <code>IP:порт</code>. Раздайте его. Все вводят <code>connect IP:порт</code>. Готово."
+    - id: vlan
+      badge: "Рекомендуем для друзей"
+      title: "2 · Свой ПК + виртуальная локалка"
+      lead: >
+        Самый дружелюбный способ хостить из дома.
+        <span class="term" tabindex="0" role="button">Виртуальная локалка<span class="teapot" aria-hidden="true">🫖</span><span class="tip">Виртуальная локалка (VPN-сеть) заставляет группу компьютеров думать, что они в одной домашней сети — даже через интернет. Без настроек роутера и без «открытых» портов.</span></span>
+        делает так, будто все в одной домашней сети — без настроек роутера и без выхода наружу в интернет.
+      steps:
+        - >
+          Все ставят <em>один и тот же</em> инструмент. Популярные:
+          <strong>ZeroTier</strong>, <strong>Tailscale</strong>, <strong>Radmin VPN</strong>, <strong>Hamachi</strong>.
+        - "Один человек создаёт сеть и раздаёт код/ID для входа. Остальные присоединяются."
+        - >
+          Каждый получает приватный
+          <span class="term" tabindex="0" role="button">виртуальный IP<span class="teapot" aria-hidden="true">🫖</span><span class="tip">Адрес, который VPN-инструмент выдаёт вам внутри группы — часто вида 10.147.x.x или 100.x.x.x. По нему другие дотягиваются до вашей машины.</span></span>
+          (виден в программе). Хостить может любой участник.
+        - >
+          Хост запускает игру через <em>Create Server</em> (или поднимает
+          <span class="term" tabindex="0" role="button">выделенный сервер<span class="teapot" aria-hidden="true">🫖</span><span class="tip">Выделенный сервер ведёт матч без игрока на этой машине — стабильнее для 4+ человек. Для маленьких игр хватит и «Create Server» из меню.</span></span>).
+          Остальные вводят <code>connect &lt;виртуальный IP хоста&gt;:27015</code>.
+        - "Ощущается ровно как LAN-пати. В следующий раз хостом может быть любой друг."
+faq:
+  title: "Частые вопросы"
+  items:
+    - q: "Друзьям нужен Steam?"
+      a: >
+        Нет. Это классическая non-Steam 1.6, зайти можно просто скачав сборку — без аккаунтов и магазина.
+    - q: "Windows пугает «неизвестным издателем». Это безопасно?"
+      a: >
+        Это стандартное предупреждение для любой программы без платной подписи сертификатом. Выберите
+        <em>Подробнее → Выполнить в любом случае</em>. На macOS то же самое — один раз правый клик → «Открыть».
+
+footer:
+  made: "Сделано для ночных каток с друзьями."
+  ui_credit: "Оформление: <a href=\"https://cs16.samke.me/\" target=\"_blank\" rel=\"noopener\">cs16.css</a>"
+  disclaimer: "Counter-Strike — торговая марка Valve Corporation. Это фанатский проект, не связанный с Valve."

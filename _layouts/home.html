@@ -1,0 +1,188 @@
+---
+layout: default
+---
+{%- assign t = site.data[page.lang] -%}
+
+<!-- ============ Top bar ============ -->
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href="{{ t.dir | relative_url }}">
+      <span class="brand-mark">CS</span> 1.6
+    </a>
+    <nav class="topnav">
+      <a href="#download">{{ t.nav.download }}</a>
+      <a href="#features">{{ t.nav.features }}</a>
+      <a href="#shots">{{ t.nav.shots }}</a>
+      <a href="#play">{{ t.nav.play }}</a>
+      <a href="#faq">{{ t.nav.faq }}</a>
+    </nav>
+    <div class="lang-switch">
+      <a class="cs-btn" href="{{ t.dir | relative_url }}" aria-current="page">{{ t.code | upcase }}</a>
+      <a class="cs-btn" href="{{ t.other.dir | relative_url }}" data-set-lang="{{ t.other.code }}">{{ t.other.code | upcase }}</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="hero-tag">{{ t.hero.tag }}</p>
+    <h1 class="hero-title">{{ t.hero.title }}</h1>
+    <p class="hero-sub">{{ t.hero.subtitle }}</p>
+    <a class="cs-btn cta" href="#download">{{ t.hero.cta }}</a>
+    <p class="hero-cta-sub">{{ t.hero.cta_sub }}</p>
+  </div>
+</section>
+
+<!-- ============ Download ============ -->
+<section id="download" class="section">
+  <div class="container">
+    <h2 class="section-title">{{ t.download.title }}</h2>
+    <p class="section-note">{{ t.download.note }}</p>
+
+    <div class="cards">
+      {%- assign platforms = "windows,macos,linux" | split: "," -%}
+      {%- for p in platforms -%}
+        {%- assign d = t.download[p] -%}
+        {%- assign link = site.downloads[p] -%}
+        <article class="cs-dialog card">
+          <div class="heading">
+            <div class="wrapper">{% include os-icon.html platform=p %}{{ d.label }}</div>
+          </div>
+          <div class="card-body">
+            <p class="card-tags">{{ d.tags }}</p>
+            <p class="card-desc">{{ d.desc }}</p>
+            {%- if link and link != "" -%}
+              {%- if p == "linux" -%}
+              <a class="cs-btn dl-btn" href="{{ link }}" data-download="{{ p }}" target="_blank" rel="noopener">
+                ↗ {{ d.button }}
+              </a>
+              {%- else -%}
+              <a class="cs-btn dl-btn" href="{{ link }}" data-download="{{ p }}" target="_blank" rel="noopener">
+                ⬇ {{ d.button }}
+              </a>
+              {%- endif -%}
+            {%- else -%}
+              <a class="cs-btn dl-btn is-soon" href="#" data-download="{{ p }}"
+                 title="{{ t.download.soon_hint }}" aria-disabled="true">
+                ⬇ {{ d.button }}
+              </a>
+              <p class="soon-note">{{ t.download.soon }}</p>
+            {%- endif -%}
+            {%- if d.joke -%}<p class="card-joke">{{ d.joke }}</p>{%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- ============ What's inside ============ -->
+{%- if t.features -%}
+<section id="features" class="section alt">
+  <div class="container">
+    <h2 class="section-title">{{ t.features.title }}</h2>
+    {%- if t.features.note %}<p class="section-note">{{ t.features.note }}</p>{% endif -%}
+    <article class="cs-dialog panel">
+      <div class="panel-body">
+        <ul class="features-list">
+          {%- for f in t.features.items -%}<li>{{ f }}</li>{%- endfor -%}
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+{%- endif -%}
+
+<!-- ============ Screenshots ============ -->
+{%- if t.screenshots -%}
+<section id="shots" class="section">
+  <div class="container">
+    <h2 class="section-title">{{ t.screenshots.title }}</h2>
+    {%- if t.screenshots.note %}<p class="section-note">{{ t.screenshots.note }}</p>{% endif -%}
+    <div class="shots">
+      {%- for s in t.screenshots.shots -%}
+        {%- if s.src and s.src != "" -%}
+        <figure class="shot">
+          <img src="{{ s.src | relative_url }}" alt="{{ s.caption }}" loading="lazy">
+          {%- if s.caption and s.caption != "" %}<figcaption>{{ s.caption }}</figcaption>{% endif -%}
+        </figure>
+        {%- else -%}
+        <div class="shot shot-empty"><span>🖼️ {{ t.screenshots.placeholder }}</span></div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+<!-- ============ Play together ============ -->
+<section id="play" class="section alt">
+  <div class="container">
+    <h2 class="section-title">{{ t.play.title }}</h2>
+    <p class="section-note">{{ t.play.intro }}</p>
+
+    <!-- Connect basics -->
+    <article class="cs-dialog panel">
+      <div class="heading"><div class="wrapper"><span class="icon"></span>{{ t.play.console_title }}</div></div>
+      <div class="panel-body">
+        <ol class="steps">
+          {%- for s in t.play.console_steps -%}<li>{{ s }}</li>{%- endfor -%}
+        </ol>
+      </div>
+    </article>
+
+    <!-- The three hosting options as accordions -->
+    <div class="accordion">
+      {%- for opt in t.play.options -%}
+      <article class="cs-dialog panel acc-item{% if forloop.first %} open{% endif %}">
+        <button class="heading acc-head" type="button" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
+          <div class="wrapper">
+            <span class="badge">{{ opt.badge }}</span>
+            <span class="acc-title">{{ opt.title }}</span>
+          </div>
+          <span class="acc-chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="panel-body acc-body">
+          {%- if opt.lead -%}<p class="opt-lead">{{ opt.lead }}</p>{%- endif -%}
+          <ol class="steps">
+            {%- for s in opt.steps -%}<li>{{ s }}</li>{%- endfor -%}
+          </ol>
+        </div>
+      </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="section">
+  <div class="container">
+    <h2 class="section-title">{{ t.faq.title }}</h2>
+    <div class="faq">
+      {%- for item in t.faq.items -%}
+      <details class="cs-dialog panel faq-item">
+        <summary class="heading"><div class="wrapper"><span class="icon"></span>{{ item.q }}</div></summary>
+        <div class="panel-body"><p>{{ item.a }}</p></div>
+      </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-made">{{ t.footer.made }}</p>
+    <p class="footer-fine">
+      {{ t.footer.ui_credit }} · <a href="{{ t.other.dir | relative_url }}" data-set-lang="{{ t.other.code }}">{{ t.other.name }}</a>
+    </p>
+    <p class="footer-fine">{{ t.footer.disclaimer }}</p>
+  </div>
+</footer>
+
+<!-- Click-to-enlarge overlay for screenshots -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lightbox-close cs-btn" type="button" aria-label="Close">✕</button>
+  <img src="" alt="">
+</div>

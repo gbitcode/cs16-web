@@ -1,0 +1,12 @@
+# Local development overrides. Merged on top of _config.yml.
+#
+# Use it when previewing locally:
+#   bundle exec jekyll serve --config _config.yml,_config_dev.yml --livereload
+#
+# Note: analytics is ALREADY off locally because `jekyll serve` runs in the
+# "development" environment and the GA snippet only renders in "production"
+# (which GitHub Pages sets automatically). These overrides just make absolute
+# URLs resolve to localhost and belt-and-suspenders blank the GA id.
+
+url: "http://localhost:4000"
+ga_id: ""

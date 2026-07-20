@@ -1,0 +1,30 @@
+---
+layout: null
+permalink: /
+sitemap: false
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Counter-Strike 1.6</title>
+  <meta name="robots" content="noindex">
+  <script>
+    // Send visitors to their language: saved choice > browser language > English.
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('cs16_lang'); } catch (e) {}
+      var browser = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      var lang = saved || (browser.indexOf('ru') === 0 ? 'ru' : 'en');
+      location.replace('/' + lang + '/');
+    })();
+  </script>
+  <!-- Fallback if JavaScript is disabled -->
+  <meta http-equiv="refresh" content="0; url=/en/">
+</head>
+<body>
+  <p>Redirecting… If nothing happens, choose a language:
+    <a href="/en/">English</a> · <a href="/ru/">Русский</a>
+  </p>
+</body>
+</html>

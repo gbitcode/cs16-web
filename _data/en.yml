@@ -1,0 +1,147 @@
+code: en
+name: English
+dir: /en/
+other:
+  code: ru
+  name: "Русский"
+  dir: /ru/
+
+meta:
+  title: "Counter-Strike 1.6 — Download & Play With Friends"
+  description: "Download Counter-Strike 1.6 for Windows and macOS. Self-contained builds, plus dead-simple guides to host a server and play online with your friends."
+
+nav:
+  features: "What's inside"
+  download: "Download"
+  shots: "Screenshots"
+  play: "Play together"
+  faq: "FAQ"
+
+hero:
+  tag: "So easy, even a dummy gets it."
+  title: "Counter-Strike 1.6"
+  subtitle: "Ready to frag on Windows and macOS."
+  cta: "Get the game"
+  cta_sub: "Free · self-contained · Intel &amp; Apple Silicon"
+
+features:
+  title: "What's inside"
+  note: "Classic 1.6 at heart, polished for today."
+  items:
+    - "Classic theme, redesigned menu"
+    - "Improved classic weapon animations"
+    - "Original weapon skins preserved"
+    - "New, improved minimal HUD"
+    - "Refined classic visual style"
+    - "Smooth, modern gameplay feel"
+    - "Powered by Next Client"
+    - "LAN &amp; online support"
+    - "Bots"
+
+download:
+  title: "Download"
+  note: "Pick your system. The Windows and macOS builds are self-contained — just run and play; Linux goes through Wine."
+  soon: "Link coming soon"
+  soon_hint: "The file is being packaged. Check back shortly."
+  windows:
+    label: "Windows"
+    tags: "Windows 10 / 11 · installer"
+    desc: "Run the installer, follow the steps, and play. If Windows warns about an unknown publisher, choose <em>More info → Run anyway</em>."
+    button: "Download for Windows"
+    joke: "for the broke 💸"
+  macos:
+    label: "macOS"
+    tags: >
+      Intel &amp; Apple Silicon (via <span class="term" tabindex="0" role="button">Rosetta 2<span class="teapot" aria-hidden="true">🫖</span><span class="tip">Rosetta 2 lets Apple Silicon (M1/M2/M3) Macs run Intel-built apps. macOS installs it automatically the first time you need it.</span></span>)
+    desc: >
+      A <code>.dmg</code> with the game engine bundled inside. Open it, drag the app into
+      <em>Applications</em>, then on first launch right-click → <em>Open</em> to get past
+      <span class="term" tabindex="0" role="button">Gatekeeper<span class="teapot" aria-hidden="true">🫖</span><span class="tip">Gatekeeper is macOS's security check. It warns about apps from outside the App Store. Right-click the app and choose “Open” once to approve it — this is expected here.</span></span>.
+    button: "Download for macOS"
+    joke: "for those who bat for the other side 🌈"
+  linux:
+    label: "Linux"
+    tags: "via Wine · WineHQ AppDB"
+    desc: "No native build — but 1.6 runs great under Wine. The WineHQ AppDB page has setup tips, ratings and known quirks."
+    button: "somewhere around here"
+    joke: "for those who enjoy suffering 🐧"
+
+screenshots:
+  title: "Screenshots"
+  placeholder: "Screenshot goes here"
+  shots:
+    - { src: "/assets/images/screen1.webp", caption: "" }
+    - { src: "/assets/images/screen2.webp", caption: "" }
+
+play:
+  title: "Play together"
+  intro: >
+    Counter-Strike 1.6 is <em>peer-hostable</em>: someone runs a
+    <span class="term" tabindex="0" role="button">server<span class="teapot" aria-hidden="true">🫖</span><span class="tip">A server is just the program that hosts the match. Everyone else “connects” to it. It can be a rented machine — or your own PC.</span></span>,
+    everyone else connects to it. Below are three ways to do that, from zero-effort to full control.
+  console_title: "First: how to connect to any server"
+  console_steps:
+    - >
+      In the game, open the console with the <kbd>~</kbd> key (the tilde, top-left under <kbd>Esc</kbd>).
+    - >
+      Type <code>connect &lt;address&gt;</code> and press Enter — for example
+      <code>connect 192.168.5.10:27015</code>. That's the server's
+      <span class="term" tabindex="0" role="button">IP address<span class="teapot" aria-hidden="true">🫖</span><span class="tip">An IP address is a device's number on a network, like a phone number. Servers are reached at IP + port, e.g. 192.168.5.10:27015.</span></span>
+      and <span class="term" tabindex="0" role="button">port<span class="teapot" aria-hidden="true">🫖</span><span class="tip">A port is a numbered “door” on a machine. CS 1.6 servers use 27015 by default. You usually only type it if it's different.</span></span>.
+    - "That's the whole trick. Every method below just changes <em>which address</em> you type."
+
+  options:
+    - id: rent
+      badge: "Easiest"
+      title: "1 · Rent a ready server"
+      lead: "Zero setup, always online, someone else keeps it running. Best if you want a permanent home for your crew."
+      steps:
+        - >
+          Pick any game-server host. There are plenty — names to search for:
+          <strong>ZAP-Hosting</strong>, <strong>Nitrado</strong>, <strong>GameServers</strong>,
+          <strong>Fragnet</strong>, <strong>Host Havoc</strong>, <strong>Fatality Servers</strong>.
+          (We don't link any — pick whichever is cheap and close to you.)
+        - >
+          Order a <strong>Counter-Strike 1.6</strong> /
+          <span class="term" tabindex="0" role="button">HLDS<span class="teapot" aria-hidden="true">🫖</span><span class="tip">HLDS = Half-Life Dedicated Server, the official program that hosts 1.6 matches. Hosts label the product “CS 1.6” or “HLDS”.</span></span>
+          slot. Choose a location with low
+          <span class="term" tabindex="0" role="button">ping<span class="teapot" aria-hidden="true">🫖</span><span class="tip">Ping (latency) is the round-trip time to the server in milliseconds. Lower is smoother. Pick a location near most of your friends.</span></span>
+          for most of your friends.
+        - "The host hands you an <code>IP:port</code>. Share it. Everyone runs <code>connect IP:port</code>. Done."
+    - id: vlan
+      badge: "Recommended for friends"
+      title: "2 · Your PC + a virtual LAN"
+      lead: >
+        The friendliest way to host from home. A
+        <span class="term" tabindex="0" role="button">virtual LAN<span class="teapot" aria-hidden="true">🫖</span><span class="tip">A virtual LAN (VPN mesh) tricks a group of computers into thinking they're on the same home network, even across the internet. No router settings, no exposed ports.</span></span>
+        makes everyone feel like they're on the same home network — no router settings, nothing exposed to the internet.
+      steps:
+        - >
+          Everyone installs the <em>same</em> tool. Popular ones:
+          <strong>ZeroTier</strong>, <strong>Tailscale</strong>, <strong>Radmin VPN</strong>, <strong>Hamachi</strong>.
+        - "One person creates a network and shares the join code/ID. Everyone joins it."
+        - >
+          Each person now gets a private
+          <span class="term" tabindex="0" role="button">virtual IP<span class="teapot" aria-hidden="true">🫖</span><span class="tip">The address the VPN tool assigns you inside the group — often like 10.147.x.x or 100.x.x.x. Others use it to reach your machine.</span></span>
+          (shown in the tool). Any member can host.
+        - >
+          The host starts a game with <em>Create Server</em> (or runs a
+          <span class="term" tabindex="0" role="button">dedicated server<span class="teapot" aria-hidden="true">🫖</span><span class="tip">A dedicated server runs the match without anyone playing on that machine — steadier for 4+ players. The bundled build can also just “Create Server” from the menu for small games.</span></span>).
+          Everyone else types <code>connect &lt;host's virtual IP&gt;:27015</code>.
+        - "Feels exactly like a LAN party. Any friend can be the host next time."
+faq:
+  title: "FAQ"
+  items:
+    - q: "Do my friends need Steam?"
+      a: >
+        No. These builds run the classic non-Steam 1.6, so anyone can join with just the download —
+        no accounts, no store.
+    - q: "Windows warns about an unknown publisher. Safe?"
+      a: >
+        That's the standard warning for any app not signed with a paid certificate. Choose
+        <em>More info → Run anyway</em>. On macOS it's the same idea — right-click → Open once.
+
+footer:
+  made: "Built for late-night matches with friends."
+  ui_credit: "UI theme: <a href=\"https://cs16.samke.me/\" target=\"_blank\" rel=\"noopener\">cs16.css</a>"
+  disclaimer: "Counter-Strike is a trademark of Valve Corporation. This is a fan project, not affiliated with Valve."

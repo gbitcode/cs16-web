@@ -1,0 +1,256 @@
+/* ============================================================
+   cs16 landing — custom styles on top of cs16.css
+   Palette comes from cs16.css :root (--bg, --accent, --text …)
+   ============================================================ */
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+/* The oversized hero title can be wider than a phone screen — never let
+   that turn into a sideways scroll that clips every other line. */
+html, body { overflow-x: hidden; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* Faint CS-style dark vignette over the olive base */
+  background-color: var(--secondary-bg);
+  background-image:
+    radial-gradient(120% 80% at 50% -10%, rgba(196,181,80,.10), transparent 60%),
+    linear-gradient(180deg, #333a2c 0%, #2b3123 100%);
+  font-size: 18px;
+}
+
+.container { width: min(1040px, 92vw); margin: 0 auto; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, kbd {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: .82em;
+  background: rgba(0,0,0,.32);
+  border: 1px solid var(--border-dark);
+  padding: 1px 5px;
+  border-radius: 2px;
+  color: #f2e9a8;
+  white-space: nowrap;
+}
+kbd { color: #fff; }
+
+/* ---------------- Header ---------------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--bg);
+  border-bottom: 2px solid var(--border-dark);
+  box-shadow: 0 2px 0 var(--border-light) inset, 0 3px 10px rgba(0,0,0,.4);
+}
+.bar { display: flex; align-items: center; gap: 16px; padding: 8px 0; }
+.brand { color: #fff; font-size: 24px; letter-spacing: 1px; }
+.brand:hover { text-decoration: none; }
+.brand-mark {
+  background: var(--accent); color: #2b3123;
+  padding: 2px 6px 0; border: 1px solid var(--border-dark);
+}
+.topnav { display: flex; gap: 18px; margin-left: auto; }
+.topnav a { color: var(--text); font-size: 17px; }
+.lang-switch { display: flex; gap: 4px; }
+.lang-switch .cs-btn { width: auto; text-align: center; min-width: 42px; }
+.lang-switch .cs-btn[aria-current="page"] {
+  background: var(--secondary-accent); color: #000;
+}
+
+/* ---------------- Hero ---------------- */
+.hero { padding: 70px 0 60px; text-align: center; }
+.hero-tag {
+  color: var(--accent); text-transform: uppercase;
+  letter-spacing: 3px; font-size: 15px; margin: 0 0 10px;
+}
+.hero-title {
+  font-size: clamp(42px, 9vw, 96px); line-height: .95;
+  margin: 0; color: #fff; overflow-wrap: break-word;
+  text-shadow: 3px 3px 0 var(--border-dark), 0 0 26px rgba(196,181,80,.25);
+}
+.hero-sub {
+  color: var(--text); font-size: clamp(18px, 2.6vw, 23px);
+  max-width: 620px; margin: 18px auto 28px;
+}
+.cta {
+  font-size: 22px !important; padding: 12px 26px 10px !important;
+  width: auto !important; text-align: center !important;
+}
+.hero-cta-sub { color: var(--text-3); font-size: 15px; margin-top: 12px; }
+
+/* ---------------- Sections ---------------- */
+.section { padding: 54px 0; }
+.section.alt {
+  background: rgba(0,0,0,.14);
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+.section-title {
+  color: #fff; font-size: clamp(30px, 5vw, 44px); margin: 0 0 8px;
+  text-shadow: 2px 2px 0 var(--border-dark);
+}
+.section-title::before { content: "▸ "; color: var(--accent); }
+.section-note { color: var(--text); max-width: 720px; margin: 0 0 28px; font-size: 19px; }
+.fine-print { color: var(--text-3); font-size: 14px; margin-top: 18px; }
+
+/* ---------------- Panels / cards (cs-dialog) ---------------- */
+.cs-dialog.card, .cs-dialog.panel {
+  position: static; max-width: none; min-width: 0;
+  width: 100%; margin: 0;
+}
+.panel { margin-bottom: 16px; }
+.card-body, .panel-body { padding: 12px 8px 8px; }
+
+/* cs16.css disables text selection on .cs-dialog panels. Re-enable it for the
+   instructional copy so players can actually copy commands and addresses. */
+.card-body, .panel-body, .steps, .opt-lead, .term,
+.cs-dialog p, .cs-dialog li, .cs-dialog code { user-select: text; }
+
+/* Download cards grid */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.card .card-tags { color: var(--accent); font-size: 15px; margin: 0 0 8px; }
+.card .card-desc { color: var(--text); margin: 0 0 16px; min-height: 3em; }
+.card-joke { color: var(--text-3); font-style: italic; font-size: 14px; margin: 10px 0 0; }
+.os-icon { width: 18px; height: 18px; flex: none; color: var(--accent); }
+.dl-btn {
+  width: auto !important; text-align: center !important;
+  font-size: 18px !important; padding: 10px 16px 8px !important;
+  display: inline-block;
+}
+.dl-btn.is-soon { opacity: .6; cursor: not-allowed; }
+.soon-note { color: var(--accent); font-size: 14px; margin: 8px 0 0; }
+
+/* ---------------- Features / What's inside ---------------- */
+.features-list {
+  list-style: none; margin: 0; padding: 4px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 28px;
+}
+.features-list li {
+  position: relative; padding-left: 28px; color: var(--text); font-size: 18px;
+}
+.features-list li::before {
+  content: "✓"; position: absolute; left: 4px; top: 0;
+  color: var(--accent); font-weight: bold;
+}
+
+/* ---------------- Screenshots ---------------- */
+.shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.shot {
+  margin: 0; background: rgba(0,0,0,.28);
+  border: 1px solid;
+  border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
+}
+.shot img { display: block; width: 100%; height: auto; cursor: zoom-in; }
+.shot figcaption { padding: 6px 9px 5px; color: var(--text-3); font-size: 14px; }
+.shot-empty {
+  aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 12px; color: var(--text-3);
+  border-style: dashed; border-color: var(--border-light);
+}
+.shot-empty span { opacity: .85; }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; z-index: 100; display: none;
+  align-items: center; justify-content: center;
+  background: rgba(0,0,0,.86); padding: 24px;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 94vw; max-height: 90vh; width: auto; height: auto;
+  cursor: zoom-out;
+  border: 1px solid;
+  border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
+  box-shadow: 0 0 0 4px rgba(0,0,0,.4);
+}
+.lightbox-close {
+  position: absolute; top: 16px; right: 16px; z-index: 2;
+  width: auto; text-align: center;
+}
+
+/* ---------------- Steps ---------------- */
+.steps { margin: 0; padding-left: 26px; }
+.steps > li { margin-bottom: 12px; color: var(--text); }
+.steps > li::marker { color: var(--accent); font-weight: bold; }
+.opt-lead { color: var(--secondary-text); margin: 0 0 14px; font-size: 18px; }
+.panel-body strong { color: #fff; }
+
+/* ---------------- Accordion ---------------- */
+.acc-head {
+  width: 100%; background: none; border: 0; cursor: pointer;
+  font-family: inherit; font-size: inherit; color: var(--text);
+  text-align: left;
+}
+.acc-title { font-size: 20px; color: #fff; }
+.badge {
+  background: var(--accent); color: #2b3123; font-size: 13px;
+  padding: 2px 7px 1px; border: 1px solid var(--border-dark);
+  white-space: nowrap; text-transform: uppercase; letter-spacing: .5px;
+}
+.acc-chevron { transition: transform .18s ease; color: var(--accent); }
+.acc-item .acc-body { display: none; }
+.acc-item.open .acc-body { display: block; }
+.acc-item.open .acc-chevron { transform: rotate(180deg); }
+
+/* ---------------- FAQ (native details) ---------------- */
+.faq-item { padding: 0; }
+.faq-item > summary {
+  list-style: none; cursor: pointer; padding: 6px 4px; user-select: none;
+}
+.faq-item > summary::-webkit-details-marker { display: none; }
+.faq-item[open] > summary { border-bottom: 1px solid var(--border-dark); }
+.faq-item .panel-body p { margin: 0; color: var(--text); }
+
+/* ---------------- Teapot term tooltips (for dummies) ---------------- */
+.term {
+  position: relative;
+  border-bottom: 1px dotted var(--accent);
+  cursor: help; color: #fff; outline: none;
+}
+.term:focus-visible { outline: 1px dotted var(--accent); outline-offset: 2px; }
+.teapot { font-size: .78em; margin-left: 2px; vertical-align: super; }
+.term .tip {
+  visibility: hidden; opacity: 0;
+  position: absolute; left: 50%; bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  width: max-content; max-width: min(320px, 82vw);
+  white-space: normal; text-align: left; line-height: 1.35;
+  background: var(--secondary-accent); color: #000;
+  border: 1px solid var(--border-dark);
+  padding: 7px 9px; font-size: 15px; z-index: 30;
+  box-shadow: 3px 3px 0 rgba(0,0,0,.5);
+  transition: opacity .12s ease;
+}
+.term .tip::after {
+  content: ""; position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent; border-top-color: var(--border-dark);
+}
+.term:hover .tip, .term:focus .tip, .term:focus-within .tip { visibility: visible; opacity: 1; }
+
+/* ---------------- Footer ---------------- */
+.site-footer {
+  text-align: center; padding: 34px 0 44px;
+  border-top: 2px solid var(--border-dark);
+  background: var(--bg);
+}
+.footer-made { color: #fff; font-size: 18px; margin: 0 0 6px; }
+.footer-fine { color: var(--text-3); font-size: 14px; margin: 4px 0; }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 720px) {
+  body { font-size: 17px; }
+  .topnav { display: none; }
+  .hero { padding: 46px 0 40px; }
+  .hero-title { font-size: clamp(38px, 12vw, 60px); }
+  .cards { grid-template-columns: 1fr; }
+  .card .card-desc { min-height: 0; }
+  .shots { grid-template-columns: 1fr; }
+  .features-list { grid-template-columns: 1fr; }
+  .term .tip { left: 0; transform: none; }
+  .term .tip::after { left: 24px; }
+  /* Long console addresses shouldn't push the layout wider than the screen. */
+  code { white-space: normal; overflow-wrap: anywhere; }
+}
