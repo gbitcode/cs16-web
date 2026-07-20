@@ -1,0 +1,59 @@
+name: Build & deploy to GitHub Pages
+
+# Use this workflow ONLY if you want the Google Analytics ID injected at build
+# time from a repo Variable instead of committing it in _config.yml.
+# Requires: Repo → Settings → Pages → Source = "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deploys at once; don't cancel an in-flight one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true          # installs gems + caches them
+
+      - uses: actions/configure-pages@v5
+
+      # Write the GA id into an override config that is NOT committed.
+      # Set it in: Repo → Settings → Secrets and variables → Actions → Variables
+      #   Name: GA_ID   Value: G-XXXXXXXXXX
+      # If the variable is unset, ga_id becomes "" and analytics stays off.
+      - name: Inject Google Analytics ID
+        env:
+          GA_ID: ${{ vars.GA_ID }}
+        run: echo "ga_id: \"${GA_ID}\"" > _config.ci.yml
+
+      - name: Build with Jekyll
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --config _config.yml,_config.ci.yml
+
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

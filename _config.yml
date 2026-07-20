@@ -7,7 +7,7 @@ lang_default: en
 # --- Google Analytics ---
 # Paste your Measurement ID here later, e.g. "G-XXXXXXXXXX".
 # Leave empty to disable analytics (nothing is loaded).
-ga_id: ""
+ga_id: "G-51KEZZ6CXY"
 
 # --- Download links ---
 # Paste the direct file URLs here later (e.g. a GitHub Release asset).
